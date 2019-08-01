@@ -132,13 +132,6 @@ void wavread_RIFF(RIFF *riff, char *filename){
     fp = fopen(filename, "rb");
 
     //judge if the file equals to RIFF chunk
-    if(fp == NULL){
-        //Throw the error and end the program.
-        printf("Error!: Invalid file condition.\n");
-        free(riff);
-        exit(1);
-    }
-
     fread(riff->chunkID, 1, 4, fp);
 
     //if the file doesn't have RIFF format
@@ -146,7 +139,6 @@ void wavread_RIFF(RIFF *riff, char *filename){
         //Throw the error and end the program.
         printf("Error!: The file does not have RIFF chunk.\n");
         free(riff);
-        fclose(fp);
         exit(1);
     }
 
@@ -159,7 +151,6 @@ void wavread_RIFF(RIFF *riff, char *filename){
         //Throw the error and end the program.
         printf("Error!: The file is not WAV file.\n");
         free(riff);
-        fclose(fp);
         exit(1);
     }
 
