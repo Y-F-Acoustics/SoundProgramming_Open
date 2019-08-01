@@ -42,7 +42,7 @@ typedef struct{
 
 //PCM specification(fs, bits, and length per channel)
 typedef struct{
-    unsigned long fs; /* Sampling Frequency */
+    uint64_t fs; /* Sampling Frequency */
     int16_t bits; /* Quantization bits */
     int32_t length; /* The number of samples per channel */
 } PCM_SPEC;
